@@ -92,3 +92,10 @@ export const weatherError = (message: string): WeatherAction => {
     payload: message,
   };
 };
+
+
+export const removeError = ():WeatherAction => {
+  return {
+    type: WeatherActions.REMOVE_ERROR
+  }
+}

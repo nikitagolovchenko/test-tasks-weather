@@ -45,7 +45,8 @@ export enum WeatherActions {
   GEOLOCATION_SUCCESS = 'GEOLOCATION_SUCCESS',
   GEOLOCATION_ERROR = 'GEOLOCATION_ERROR',
   CITIES_SUCCESS = 'CITIES_SUCCESS',
-  CITIES_DELETE = 'CITIES_DELETE'
+  CITIES_DELETE = 'CITIES_DELETE',
+  REMOVE_ERROR = 'REMOVE_ERROR'
 }
 
 export interface WeatherState {
@@ -88,10 +89,15 @@ interface CitiesDelete {
   payload: number;
 }
 
+interface RemoveError {
+  type: WeatherActions.REMOVE_ERROR;
+}
+
 export type WeatherAction =
   | WeatherLoadingAction
   | WeatherErrorAction
   | GeolocationErrorAction
   | GeolocationSuccessAction
   | CitiesSuccessAction
-  | CitiesDelete;
+  | CitiesDelete
+  | RemoveError;

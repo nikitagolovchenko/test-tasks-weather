@@ -31,7 +31,9 @@ const weatherReducer = (
       return { ...state, geolocation: { weather: action.payload, error: '' } };
 
     case WeatherActions.CITIES_SUCCESS:
-      const correctCity = state.cities ? state.cities.find(el => el.id === action.payload.id) : [];
+      const correctCity = state.cities
+        ? state.cities.find(el => el.id === action.payload.id)
+        : [];
 
       if (!correctCity) {
         return {
@@ -48,6 +50,9 @@ const weatherReducer = (
         ...state,
         cities: state.cities.filter(el => el.id !== action.payload),
       };
+
+    case WeatherActions.REMOVE_ERROR:
+      return { ...state, error: '' };
 
     default:
       return state;

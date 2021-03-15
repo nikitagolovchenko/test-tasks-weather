@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Progress from './components/Progress';
 import Wrapper from './components/Wrapper';
 import { RootState } from './store/reducers/rootReducer';
-import { getGeolocation } from './store/actions/weatherActions';
+import { getGeolocation, removeError } from './store/actions/weatherActions';
 import UserWeather from './components/UserWeather';
 import Search from './components/Search';
 import CityList from './components/CityList';
@@ -14,6 +14,7 @@ const App: React.FC = () => {
   const weather = useSelector((state: RootState) => state.weather);
 
   useEffect(() => {
+    dispatch(removeError());
     dispatch(getGeolocation());
   }, []);
 
