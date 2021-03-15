@@ -44,20 +44,18 @@ export enum WeatherActions {
   WEATHER_ERROR = 'WEATHER_ERROR',
   GEOLOCATION_SUCCESS = 'GEOLOCATION_SUCCESS',
   GEOLOCATION_ERROR = 'GEOLOCATION_ERROR',
-  SET_LANGUAGE = 'SET_LANGUAGE'
+  CITIES_SUCCESS = 'CITIES_SUCCESS',
+  CITIES_DELETE = 'CITIES_DELETE'
 }
 
 export interface WeatherState {
-  language: {
-    languages: ['ru', 'en'];
-    currentLanguage: 'ru' | 'en';
-  };
   loading: boolean;
   error: string;
   geolocation: {
     weather: Weather | null;
     error: string;
   };
+  cities: Weather[];
 }
 
 interface WeatherLoadingAction {
@@ -80,9 +78,14 @@ interface GeolocationSuccessAction {
   payload: Weather;
 }
 
-interface SetLanguageAction {
-  type: WeatherActions.SET_LANGUAGE;
-  payload: 'ru' | 'en';
+interface CitiesSuccessAction {
+  type: WeatherActions.CITIES_SUCCESS;
+  payload: Weather;
+}
+
+interface CitiesDelete {
+  type: WeatherActions.CITIES_DELETE;
+  payload: number;
 }
 
 export type WeatherAction =
@@ -90,4 +93,5 @@ export type WeatherAction =
   | WeatherErrorAction
   | GeolocationErrorAction
   | GeolocationSuccessAction
-  | SetLanguageAction;
+  | CitiesSuccessAction
+  | CitiesDelete;

@@ -1,16 +1,13 @@
 import { WeatherAction, WeatherActions, WeatherState } from '../types';
 
 const initialState: WeatherState = {
-  language:{
-    languages: ['ru', 'en'],
-    currentLanguage: 'ru'
-  },
   loading: false,
   error: '',
   geolocation: {
     weather: null,
     error: '',
   },
+  cities: [],
 };
 
 const weatherReducer = (
@@ -33,8 +30,24 @@ const weatherReducer = (
     case WeatherActions.GEOLOCATION_SUCCESS:
       return { ...state, geolocation: { weather: action.payload, error: '' } };
 
-    case WeatherActions.SET_LANGUAGE:
-      return { ...state, language: { ...state.language, currentLanguage: action.payload} }
+    case WeatherActions.CITIES_SUCCESS:
+      const correctCity = state.cities.find(el => el.id === action.payload.id);
+
+      if (!correctCity) {
+        return {
+          ...state,
+          cities: [...state.cities, action.payload],
+          error: '',
+        };
+      } else {
+        return { ...state, error: '' };
+      }
+
+    case WeatherActions.CITIES_DELETE:
+      return {
+        ...state,
+        cities: state.cities.filter(el => el.id !== action.payload),
+      };
 
     default:
       return state;

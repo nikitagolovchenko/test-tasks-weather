@@ -5,6 +5,9 @@ import Wrapper from './components/Wrapper';
 import { RootState } from './store/reducers/rootReducer';
 import { getGeolocation } from './store/actions/weatherActions';
 import UserWeather from './components/UserWeather';
+import Search from './components/Search';
+import CityList from './components/CityList';
+import { Alert } from '@material-ui/lab';
 
 const App: React.FC = () => {
   const dispatch = useDispatch();
@@ -12,14 +15,17 @@ const App: React.FC = () => {
 
   useEffect(() => {
     dispatch(getGeolocation());
-  }, [])
+  }, []);
 
   return (
     <Wrapper>
-      <Progress loading={weather.loading}/>
-      <UserWeather/>
+      <Progress loading={weather.loading} />
+      <UserWeather />
+      <Search />
+      {weather.error && <Alert severity='error'>{weather.error}</Alert>}
+      <CityList />
     </Wrapper>
   );
-}
+};
 
 export default App;
