@@ -16,10 +16,10 @@ const CityList: React.FC = () => {
 
   return (
     <Box mb={3}>
-      {!weather.cities.length && (
+      {!weather.cities && (
         <Alert severity='info'>You don't have cities</Alert>
       )}
-      {weather && (
+      {weather.cities && (
         <Grid container spacing={2}>
           {weather.cities.map((el, index) => (
             <Grow
