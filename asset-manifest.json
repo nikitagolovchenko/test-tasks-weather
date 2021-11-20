@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.js": "/test-tasks-weather/static/js/main.f69cef63.chunk.js",
+    "main.js.map": "/test-tasks-weather/static/js/main.f69cef63.chunk.js.map",
+    "runtime-main.js": "/test-tasks-weather/static/js/runtime-main.a1732d7c.js",
+    "runtime-main.js.map": "/test-tasks-weather/static/js/runtime-main.a1732d7c.js.map",
+    "static/js/2.47d4e574.chunk.js": "/test-tasks-weather/static/js/2.47d4e574.chunk.js",
+    "static/js/2.47d4e574.chunk.js.map": "/test-tasks-weather/static/js/2.47d4e574.chunk.js.map",
+    "index.html": "/test-tasks-weather/index.html",
+    "static/js/2.47d4e574.chunk.js.LICENSE.txt": "/test-tasks-weather/static/js/2.47d4e574.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a1732d7c.js",
+    "static/js/2.47d4e574.chunk.js",
+    "static/js/main.f69cef63.chunk.js"
+  ]
+}
